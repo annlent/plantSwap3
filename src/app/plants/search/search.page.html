@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+
+    </ion-buttons>
+    <ion-title>Search plants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{ loadedPlants[0].title }}
+            </ion-card-title>
+            <ion-card-subtitle> {{ loadedPlants[0].price | currency }} / per plant </ion-card-subtitle>
+          </ion-card-header>
+          <ion-img [src]="loadedPlants[0].imageUrl"></ion-img>
+          <ion-card-content>
+            <p>{{ loadedPlants[0].description }}</p>
+          </ion-card-content>
+          <div text-right padding>
+            <ion-button
+            fill="clear"
+            color="primary"
+            [routerLink]="[
+            '/',
+            'plants',
+            'tabs',
+            'search',
+            loadedPlants[0].id]">
+            More
+          </ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+     <ion-list>
+       <ion-item *ngFor="let plant of loadedPlants.slice(1)" routerLink =
+       "[
+       'plants',
+       'tabs',
+       'search',
+       'plant.id'
+       ]"
+       detail>
+         <ion-thumbnail slot="start">
+           <ion-img [src]="plant.imageUrl"></ion-img>
+         </ion-thumbnail>
+         <ion-label>
+           <h2> {{plant.title}} </h2>
+           <p> {{plant.description}}</p>
+         </ion-label>
+       </ion-item>
+     </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+</ion-content>

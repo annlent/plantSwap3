@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ selectedPlant.title}}</ion-title>
+    <ion-buttons slot="primary"></ion-buttons>
+    <ion-button (click)="onCancel()">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center padding>
+  <p>{{ selectedPlant.description }}</p>
+  <!-- <p>{{ selectedPlant.imageUrl }}</p>
+  <p>{{ selectedPlant.price }} per plant</p> -->
+  <ion-button color="primary" (click)="onBookPlant()">Buy!</ion-button>
+</ion-content>
+

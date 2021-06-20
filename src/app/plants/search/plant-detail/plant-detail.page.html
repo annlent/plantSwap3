@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/plants/tabs/search"></ion-back-button>
+    </ion-buttons>
+    <ion-title>BUY</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-button>Buy</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{ plant.title }}
+            </ion-card-title>
+            <ion-card-subtitle> {{ plant.price | currency }} / per plant </ion-card-subtitle>
+          </ion-card-header>
+          <ion-img [src]="plant.imageUrl"></ion-img>
+          <ion-card-content>
+            <p>{{ plant.description }}</p>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
